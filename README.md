@@ -26,9 +26,9 @@ VIRTUAL20 is an extension of VIRTUAL and it aims to provide standardized token r
 
 ### delegatorOf
 
-Returns the delegator of ERC721.
+Returns the delegator of VIRTUAL.
 
-Delegator is only an attribute of ERC721 for identification, and does not have any direct permissions like {approve}  {setApprovalForAll}  {transferFrom}  {safeTransferFrom}.
+Delegator is only an attribute of VIRTUAL for identification, and does not have any direct permissions like {approve}  {setApprovalForAll}  {transferFrom}  {safeTransferFrom}.
 
 ``` js
 function delegatorOf(uint256 tokenId) external view returns (address);
@@ -36,11 +36,11 @@ function delegatorOf(uint256 tokenId) external view returns (address);
 
 ### setDelegator
 
-Set `_delegator` as the delegator of the ERC721 with tokenId as `_tokenId`.
+Set `_delegator` as the delegator of the VIRTUAL with tokenId as `_tokenId`.
 
 Emits an {SetDelegator} event.
 
-The delegator attribute can be set to address(0), which means the ERC721 has no delegator.
+The delegator attribute can be set to address(0), which means the VIRTUAL has no delegator.
 
 ``` js
 function setDelegator(address _delegator, uint256 _tokenId) external returns (bool);
@@ -64,13 +64,13 @@ see contracts/VIRTUAL20.sol
 
 ## How it works
 
-Application running on the blockchain, such as blockchain game, can be defined as a state machine. Most blockchain games are based on ERC-721, that is, only the `owner` has the permission to send a valid transaction that can cause state transition, and it's inconvenience in scenarios such as lending.
+Application running on the blockchain, such as blockchain game, can be defined as a state machine. Most blockchain games are based on VIRTUAL, that is, only the `owner` has the permission to send a valid transaction that can cause state transition, and it's inconvenience in scenarios such as lending.
 
 ![state](https://github.com/AFKDAO/ERC4610/blob/main/docs/state.png)
 
-VIRTUAL20 aims to provide standardized token rental and loanable protocol for ecological applications such as blockchain games. VIRTUAL20 is an extension of ERC-721. In ERC-721, we use `owner` to determine who has the unique ownership of NFTs. And in VIRTUAL20, we added a role called `delegator`.
+VIRTUAL20 aims to provide standardized token rental and loanable protocol for ecological applications such as blockchain games. VIRTUAL20 is an extension of VIRTUAL. In VIRTUAL, we use `owner` to determine who has the unique ownership of NFTs. And in VIRTUAL20, we added a role called `delegator`.
 
-`delegator` has no permission to transefer or approve the token, it's a tag of ERC-721. What the `delegaotr` can do depends on the design and development of the application or game. In general, without affecting the security of assets, the `delegator` should have the same permissions as the `owner`. In this way, the `delegator` can also send a valid transaction and change the state machine.
+`delegator` has no permission to transefer or approve the token, it's a tag of VIRTUAL. What the `delegaotr` can do depends on the design and development of the application or game. In general, without affecting the security of assets, the `delegator` should have the same permissions as the `owner`. In this way, the `delegator` can also send a valid transaction and change the state machine.
 
 Note that  `delegator` is only an operator of `owner` , therefore, the transaction sent by `delegator` should eventually change the state of `owner`, not `delegator`. When it comes to the transfer of assets, the `sender` should be the `owner` (not `delegator`) or other (depending on your app logic), and when the assets are to be transferred out, the `recipient` should be the `owner` or other. 
 
