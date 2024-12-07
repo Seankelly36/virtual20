@@ -11,7 +11,7 @@
 <img src="VIRTUAL.png" width="550px" alt="ERC420 PROTOCAL" style="margin-left:-35px">
 
 
-[![Twitter](https://img.shields.io/twitter/url/https/twitter/follow/portkeyai?style=social&label=Follow%20%40PortkeyAI)](https://x.com/HGDEXS)
+[![Twitter](https://img.shields.io/twitter/url/https/twitter/follow/portkeyai?style=social&label=FollowVIRTUAL20)](https://x.com/HGDEXS)
 
 </div>
 
